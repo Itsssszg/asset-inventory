@@ -4,6 +4,8 @@ from pydantic import BaseModel, ConfigDict
 class AssetBase(BaseModel):
     asset_tag: str
     name: str
+    category: str
+    subcategory: str | None = None
     asset_type: str
     status: str = "active"
     location: str | None = None
@@ -17,6 +19,8 @@ class AssetCreate(AssetBase):
 class AssetUpdate(BaseModel):
     asset_tag: str | None = None
     name: str | None = None
+    category: str | None = None
+    subcategory: str | None = None
     asset_type: str | None = None
     status: str | None = None
     location: str | None = None
